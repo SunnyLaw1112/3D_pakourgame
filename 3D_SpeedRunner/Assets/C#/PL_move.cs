@@ -25,12 +25,12 @@ public class PL_move : MonoBehaviour
     bool readyToJump;
     bool canDoubleJump;
     bool canMove;
-    static public bool 持有道具;
-    bool 加速道具;
-    bool 二段跳;
-    bool 道具箱;
+    static public bool haveTool;
+    bool Atool;
+    bool Btool;
+    bool ToolBox;
 
-    public static float 計分;
+    public static float AddScore;
     public Text score;
 
     public float slipCooldown;
@@ -55,10 +55,10 @@ public class PL_move : MonoBehaviour
     public RaycastHit rightWallhit;
     public LayerMask whatIsWall;
 
-    [Header("翻牆")]
-    static public bool 可以翻牆;
-    static public bool 準備翻牆;
-    public bool 正在翻牆;
+    [Header("wall up")]
+    static public bool CanWallUp;
+    static public bool ReadyToWallUp;
+    public bool Walluping;
     public float up;
     public float saveposition_x;
     public float saveposition_z;
@@ -104,25 +104,25 @@ public class PL_move : MonoBehaviour
         wallCheckDistance = 1.2f;
         playerHeight = 2;
 
-        計分 = 0;
-        準備翻牆 = true;
+        AddScore = 0;
+        ReadyToWallUp = true;
         MAX_BP = 10000;
         BP = MAX_BP;
         A.SetActive(false);
         B.SetActive(false);
-        持有道具 = false;
-        加速道具 = false;
-        二段跳 = false;
+        haveTool = false;
+        Atool = false;
+        Btool = false;
     }
 
     private void Update()
     {
         print(jumpForce);
-        可以翻牆 = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
+        CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance, whatIsWall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallhit, wallCheckDistance, whatIsWall);
-        正在翻牆 = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f) && !grounded;
+        Walluping = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f) && !grounded;
 
         if (canMove)
         {
@@ -151,9 +151,9 @@ public class PL_move : MonoBehaviour
                     BP = BP + 0.0001f;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Mouse0)&&持有道具)
+            if (Input.GetKeyDown(KeyCode.Mouse0)&&haveTool)
             {
-                使用道具();
+                useTool();
             }
 
             if (grounded)
@@ -161,14 +161,14 @@ public class PL_move : MonoBehaviour
             else
                 rb.drag = 0;
             timer();
-            score.text = 計分.ToString();
+            score.text = AddScore.ToString();
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            if (Input.GetKeyDown(jumpKey) && 可以翻牆 && 準備翻牆)
+            if (Input.GetKeyDown(jumpKey) && CanWallUp && ReadyToWallUp)
             {
                 Invoke(nameof(翻越), 0.05f);
-                可以翻牆 = false;
+                CanWallUp = false;
 
             }
 
@@ -278,21 +278,21 @@ public class PL_move : MonoBehaviour
     public void Box()
     {
         //canDoubleJump = true;
-        if (!持有道具) 
+        if (!haveTool) 
         {
             whatTool = Random.Range(1, 3);
             if (whatTool == 1)
             {
                 A.SetActive(true);
-                加速道具 = true;
+                Atool = true;
             }
             if (whatTool == 2)
             {
                 B.SetActive(true);
                 canDoubleJump = true;
-                二段跳 = true;
+                Btool = true;
             }
-            持有道具 = true;
+            haveTool = true;
         }
 
     }
@@ -306,30 +306,29 @@ public class PL_move : MonoBehaviour
             BP = MAX_BP;
         
     }
-    public void 使用道具()
+    public void useTool()
     {
-        if (加速道具) 
+        if (Atool) 
         {
-            計分 = 計分 + 100;
-            加速道具 = false;
+            AddScore = AddScore + 100;
+            Atool = false;
             moveSpeed = moveSpeed * 2;
             A.SetActive(false);
-            Invoke(nameof(重制效果), 3);
-            持有道具 = false;
+            Invoke(nameof(ResetA), 3);
+            haveTool = false;
         }
-        if (二段跳 && doublejump && !grounded)
+        if (Btool && doublejump && !grounded)
         {
-            
-            計分 = 計分 + 100;
-            二段跳 = false;
+            AddScore = AddScore + 100;
+            Btool = false;
             B.SetActive(false);
             Jump();
             doublejump = false;
-            持有道具 = false;
+            haveTool = false;
             canDoubleJump=false;
         }
      }
-    public void 重制效果()
+    public void ResetA()
     {
         moveSpeed = speed;
     }
@@ -340,7 +339,7 @@ public class PL_move : MonoBehaviour
     }
     public void 翻越()
     {
-        GameObject.Find("FPScamara").GetComponent<turn_camara>().開始翻牆();
+        GameObject.Find("FPScamara").GetComponent<turn_camara>().StartWallUp();
         saveposition_x = this.transform.position.x;
         saveposition_z = this.transform.position.z;
         jumpForce = 25;
@@ -348,22 +347,22 @@ public class PL_move : MonoBehaviour
         moveSpeed = moveSpeed*2/3;
         up = 3f;
         
-        Invoke(nameof(回歸), 0.15f);
+        Invoke(nameof(ReturnWallUp), 0.15f);
 
     }
-    public void 回歸()
+    public void ReturnWallUp()
     {
         jumpForce = 5;
         up = -1.5f;
         moveSpeed = moveSpeed * 3 / 2;
-        Invoke(nameof(翻牆計分), 0.15f);
+        Invoke(nameof(wallUpScore), 0.15f);
     }
-    public void 翻牆計分()
+    public void wallUpScore()
     {
         float dis = Mathf.Pow(Mathf.Pow((saveposition_x - this.transform.position.x), 2) + Mathf.Pow((saveposition_z - this.transform.position.z), 2), 0.5f);
         if (Mathf.Abs(dis) >= 1)
         {
-            計分 = 計分 + 100;
+            AddScore = AddScore + 100;
         }
     }
     //廢案

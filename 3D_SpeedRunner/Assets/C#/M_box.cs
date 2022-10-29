@@ -15,12 +15,12 @@ public class M_box : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        距離();
+        Dis();
     }
-    void 距離()
+    void Dis()
     {
         distance = Vector3.Distance(Player.transform.position, M_Box.transform.position);
-        if (distance < 1&&PL_move.持有道具==false)
+        if (distance < 1&&PL_move.haveTool==false)
         {
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Box();
 

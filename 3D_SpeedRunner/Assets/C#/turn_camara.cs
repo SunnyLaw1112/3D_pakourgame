@@ -37,7 +37,7 @@ public class turn_camara : MonoBehaviour
         {
             addZ = 0;
             zRotation = 0;
-            PL_move.準備翻牆 = true;
+            PL_move.ReadyToWallUp = true;
         }
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
@@ -57,7 +57,7 @@ public class turn_camara : MonoBehaviour
             if (readyWallJump)
             {
                 PL_move.BP = PL_move.BP - 50;
-                PL_move.計分 = PL_move.計分 + 100;
+                PL_move.AddScore = PL_move.AddScore + 100;
                 PL_move.jumpForce = 7;
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
                 readyWallJump = false;
@@ -69,7 +69,7 @@ public class turn_camara : MonoBehaviour
         else if (readyWallJump && (Input.GetKeyDown(KeyCode.Space) && (PL_move.wallLeft == true && !PL_move.grounded)))
         {
             PL_move.BP = PL_move.BP - 50;
-            PL_move.計分 = PL_move.計分 + 100;
+            PL_move.AddScore = PL_move.AddScore + 100;
             PL_move.jumpForce = 7;
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
             readyWallJump = false;
@@ -89,15 +89,15 @@ public class turn_camara : MonoBehaviour
             readyWallJump = true;
         }
     }
-    public void 開始翻牆()
+    public void StartWallUp()
     {
         
             addZ = 0.05f;
-        PL_move.準備翻牆 = false;
-        Invoke(nameof(結束翻牆), 0.3f);
+        PL_move.ReadyToWallUp = false;
+        Invoke(nameof(endWallUp), 0.3f);
 
     }
-    public void 結束翻牆()
+    public void endWallUp()
     {
         addZ = -0.05f;
 

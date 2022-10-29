@@ -18,9 +18,9 @@ public class finish_one : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ¶ZÂ÷();
+        Dis();
     }
-    void ¶ZÂ÷()
+    void Dis()
     {
         distance = Vector3.Distance(Player.transform.position, End.transform.position);
         if (distance < 3)
