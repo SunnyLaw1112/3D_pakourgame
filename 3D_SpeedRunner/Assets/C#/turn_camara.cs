@@ -53,7 +53,7 @@ public class turn_camara : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space) && (PL_move.wallRight == true) && !PL_move.grounded))
         {
-            //PL_move.∏ı≈D();
+            
             if (readyWallJump)
             {
                 PL_move.BP = PL_move.BP - 50;
@@ -62,7 +62,7 @@ public class turn_camara : MonoBehaviour
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
                 readyWallJump = false;
             }
-            //addX = -90;
+            
 
 
         }
@@ -73,7 +73,7 @@ public class turn_camara : MonoBehaviour
             PL_move.jumpForce = 7;
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
             readyWallJump = false;
-            //addX = 90;
+            
 
         }
         else if(PL_move.grounded)
