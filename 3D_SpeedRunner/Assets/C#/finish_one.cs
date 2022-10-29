@@ -28,7 +28,7 @@ public class finish_one : MonoBehaviour
             GameObject.Find("FPScontroller").GetComponent<PL_move>().end();
             print("GOOD");
             Bar.SetActive(false);
-            Ending.text = "恭喜你到達!";
+            Ending.text = "Congratulations";
 
         }
     }
