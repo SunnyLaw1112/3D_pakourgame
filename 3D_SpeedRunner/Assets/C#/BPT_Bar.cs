@@ -16,7 +16,7 @@ public class BPT_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(PL_move.BP);
+        //print(PL_move.BP);
         bar_x = 3f*PL_move.BP/PL_move.MAX_BP;
         transform.localScale = new Vector3(bar_x,0.1f,1f);
     }

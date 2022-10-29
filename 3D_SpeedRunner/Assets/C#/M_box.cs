@@ -20,7 +20,7 @@ public class M_box : MonoBehaviour
     void 距離()
     {
         distance = Vector3.Distance(Player.transform.position, M_Box.transform.position);
-        if (distance < 1)
+        if (distance < 1&&PL_move.持有道具==false)
         {
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Box();
 

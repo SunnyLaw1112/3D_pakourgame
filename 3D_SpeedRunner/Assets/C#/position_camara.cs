@@ -8,12 +8,12 @@ public class position_camara : MonoBehaviour
 
     public float down;
 
-    public Camera C_1, C_2;
+    public Camera C_1;
     // Start is called before the first frame update
     void Start()
     {
         C_1.enabled = true;
-        C_2.enabled = false;
+       
         down = 0;
     }
 
@@ -22,16 +22,7 @@ public class position_camara : MonoBehaviour
     {
         //transform.position = camaraPosition.position;
         transform.position =new Vector3 (camaraPosition.position.x, camaraPosition.position.y-down, camaraPosition.position.z);
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            C_1.enabled = true;
-            C_2.enabled = false;
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            C_1.enabled = false;
-            C_2.enabled = true;
-        }
+        
         
     }
     public void slipping()
