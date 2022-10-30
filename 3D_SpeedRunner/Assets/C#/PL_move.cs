@@ -136,7 +136,7 @@ public class PL_move : MonoBehaviour
                 if (BP > 0)
                 {
 
-                    BP = BP - 0.1f;
+                    BP = BP - 1f;
                 }
 
             }
@@ -144,7 +144,7 @@ public class PL_move : MonoBehaviour
             {
                 if (BP < MAX_BP && BP > 0)
                 {
-                    BP = BP + 0.01f;
+                    BP = BP + 0.7f;
                 }
                 if (BP <= 0)
                 {
