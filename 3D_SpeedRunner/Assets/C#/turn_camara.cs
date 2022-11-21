@@ -58,7 +58,7 @@ public class turn_camara : MonoBehaviour
             {
                 PL_move.BP = PL_move.BP - 50;
                 PL_move.AddScore = PL_move.AddScore + 100;
-                PL_move.jumpForce = 7;
+                PL_move.jumpForce = PL_move.OjumpForce*6/5;
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
                 readyWallJump = false;
             }
@@ -70,7 +70,7 @@ public class turn_camara : MonoBehaviour
         {
             PL_move.BP = PL_move.BP - 50;
             PL_move.AddScore = PL_move.AddScore + 100;
-            PL_move.jumpForce = 7;
+            PL_move.jumpForce = PL_move.OjumpForce * 6 / 5;
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
             readyWallJump = false;
             
@@ -79,7 +79,7 @@ public class turn_camara : MonoBehaviour
         else if(PL_move.grounded)
         {
             addX = 0;
-            PL_move.jumpForce = 5;
+            PL_move.jumpForce = PL_move.OjumpForce*3/2;
         }
     }
     void resetWhenWallJump()
