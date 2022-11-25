@@ -150,7 +150,7 @@ public class PL_move : MonoBehaviour
     private void Update()
     {
         
-        print(jumpForce);
+        //print(jumpForce);
         CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f,whatIsGround);
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance);
