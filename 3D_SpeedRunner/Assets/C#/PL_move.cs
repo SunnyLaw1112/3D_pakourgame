@@ -106,7 +106,7 @@ public class PL_move : MonoBehaviour
 
     private void Start()
     {
-        OjumpForce = 6.5f;
+        OjumpForce = 6f;
         jumpForce = OjumpForce;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -160,7 +160,7 @@ public class PL_move : MonoBehaviour
         if (this.transform.position.y <= 100)
         {
             AddScore = 0;
-            transform.position = new Vector3(78.5f, 212.7f, 168f);
+            transform.position = new Vector3(208.9f, 152f, -34.85f);
         }
 
 
