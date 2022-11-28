@@ -5,17 +5,18 @@ using UnityEngine;
 public class M_box : MonoBehaviour
 {
     public float distance;
-    public GameObject Player, M_Box;
+    public GameObject Player, M_Box,Cam;
     // Start is called before the first frame update
     void Start()
     {
-        
+        M_Box.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         Dis();
+        Cam.SetActive(false);
     }
     void Dis()
     {
@@ -24,9 +25,13 @@ public class M_box : MonoBehaviour
         {
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Box();
 
-            Destroy(M_Box);
+            M_Box.SetActive(false);
 
-
+            Invoke(nameof(Reset), 5f);
         }
+    }
+    private void Reset()
+    {
+        M_Box.SetActive(true);
     }
 }

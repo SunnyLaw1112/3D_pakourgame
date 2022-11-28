@@ -106,7 +106,7 @@ public class PL_move : MonoBehaviour
 
     private void Start()
     {
-        OjumpForce = 6f;
+        OjumpForce = 6.5f;
         jumpForce = OjumpForce;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
