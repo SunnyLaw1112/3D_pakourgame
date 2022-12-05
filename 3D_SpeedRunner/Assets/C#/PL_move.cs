@@ -11,6 +11,8 @@ public class PL_move : MonoBehaviour
 
     public GameObject player, A, B, C;
 
+    Animator playerAnim;
+
     static public float BP;
     static public float MAX_BP;
 
@@ -106,7 +108,7 @@ public class PL_move : MonoBehaviour
 
     private void Start()
     {
-        OjumpForce = 6.5f;
+        OjumpForce = 9f;
         jumpForce = OjumpForce;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -149,7 +151,8 @@ public class PL_move : MonoBehaviour
 
     private void Update()
     {
-        
+        Physics.gravity = new Vector3(0, -20F, 0);
+
         //print(jumpForce);
         CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f,whatIsGround);
@@ -160,6 +163,8 @@ public class PL_move : MonoBehaviour
         if (this.transform.position.y <= 100)
         {
             AddScore = 0;
+            MoveScore = 0;
+            ToolScore = 0;
             transform.position = new Vector3(208.9f, 152f, -34.85f);
         }
 
@@ -210,7 +215,7 @@ public class PL_move : MonoBehaviour
         {
             if (Input.GetKeyDown(jumpKey) && CanWallUp && ReadyToWallUp)
             {
-                Invoke(nameof(wallup), 0.05f);
+                //Invoke(nameof(wallup), 0.05f);
                 CanWallUp = false;
 
             }
@@ -269,7 +274,10 @@ public class PL_move : MonoBehaviour
     private void Moveplayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
+        if (Input.GetKey(KeyCode.W)&&!(Input.GetKey(KeyCode.LeftShift)))
+        { 
+            //playerAnim.SetBool("run", true);
+        }
         if (grounded)
         {
             //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
@@ -322,7 +330,7 @@ public class PL_move : MonoBehaviour
         moveSpeed = (moveSpeed-4)/2;
         readyToslip = true;
         GameObject.Find("camaraHolder").GetComponent<position_camara>().reset();
-        MoveScore = MoveScore + 100;
+        //MoveScore = MoveScore + 100;
     }
     public void Box()
     {
@@ -385,7 +393,7 @@ public class PL_move : MonoBehaviour
             Atool = false;
             moveSpeed = moveSpeed * 2;
             A.SetActive(false);
-            Invoke(nameof(ResetA), 3);
+            Invoke(nameof(ResetA), 1);
             haveTool = false;
         }
         if (Btool && doublejump && !grounded)
@@ -447,8 +455,8 @@ public class PL_move : MonoBehaviour
     }
     public void grappling()
     {
-        grapplingSpeed += 0.2f;
-        rb.AddForce((orientation.forward+ Vector3.up*0.02f) * moveSpeed * grapplingSpeed, ForceMode.Impulse);
+        grapplingSpeed += 0.3f;
+        rb.AddForce((orientation.forward+ Vector3.up*0.03f) * moveSpeed * grapplingSpeed, ForceMode.Impulse);
         
     }
     public void EndGrapple()
