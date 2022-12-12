@@ -11,7 +11,7 @@ public class PL_move : MonoBehaviour
 
     public GameObject player, A, B, C;
 
-    Animator playerAnim;
+    
 
     static public float BP;
     static public float MAX_BP;
@@ -154,6 +154,7 @@ public class PL_move : MonoBehaviour
         Physics.gravity = new Vector3(0, -20F, 0);
 
         //print(jumpForce);
+        
         CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f,whatIsGround);
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance);
@@ -274,10 +275,7 @@ public class PL_move : MonoBehaviour
     private void Moveplayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        if (Input.GetKey(KeyCode.W)&&!(Input.GetKey(KeyCode.LeftShift)))
-        { 
-            //playerAnim.SetBool("run", true);
-        }
+        
         if (grounded)
         {
             //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
