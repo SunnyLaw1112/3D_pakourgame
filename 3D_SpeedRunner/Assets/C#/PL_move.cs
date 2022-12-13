@@ -102,7 +102,10 @@ public class PL_move : MonoBehaviour
 
     Rigidbody rb;
 
-    
+    [Header("Climb")]
+    public float Height = 0;
+    public bool Climbing = false;
+
 
 
 
@@ -151,76 +154,79 @@ public class PL_move : MonoBehaviour
 
     private void Update()
     {
-        Physics.gravity = new Vector3(0, -20F, 0);
-
-        //print(jumpForce);
-        
-        CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f)&&!Physics.Raycast(new Vector3(transform.position.x,transform.position.y+1f,transform.position.z), orientation.forward, out forwardWallhit, 3f);
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f,whatIsGround);
-        wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance);
-        wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallhit, wallCheckDistance);
-        Walluping = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f) && !grounded;
-        AddScore = ToolScore + MoveScore;
-        if (this.transform.position.y <= 100)
+        if (!Climbing)
         {
-            AddScore = 0;
-            MoveScore = 0;
-            ToolScore = 0;
-            transform.position = new Vector3(208.9f, 152f, -34.85f);
-        }
+            Physics.gravity = new Vector3(0, -20F, 0);
+
+            //print(jumpForce);
+
+            CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f) && !Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), orientation.forward, out forwardWallhit, 3f);
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f, whatIsGround);
+            wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance);
+            wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallhit, wallCheckDistance);
+            Walluping = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f) && !grounded;
+            AddScore = ToolScore + MoveScore;
+            if (this.transform.position.y <= 100)
+            {
+                AddScore = 0;
+                MoveScore = 0;
+                ToolScore = 0;
+                transform.position = new Vector3(208.9f, 152f, -34.85f);
+            }
 
 
-        if (canMove)
-        {
-            ZRotation +=turnZ ;
-            transform.rotation = Quaternion.Euler(0, 0, ZRotation);
+            if (canMove)
+            {
+                ZRotation += turnZ;
+                transform.rotation = Quaternion.Euler(0, 0, ZRotation);
 
-            MyIput();
-            
+                MyIput();
+
                 SpeedControl();
-            
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(jumpKey))
-            {
-                if (BP > 0)
-                {
 
-                    BP = BP - 0.1f;
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(jumpKey))
+                {
+                    if (BP > 0)
+                    {
+
+                        BP = BP - 0.1f;
+                    }
+
+                }
+                else
+                {
+                    if (BP < MAX_BP && BP > 0)
+                    {
+                        BP = BP + 0.01f;
+                    }
+                    if (BP <= 0)
+                    {
+                        BP = BP + 0.0001f;
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.Mouse0) && haveTool)
+                {
+                    useTool();
+                }
+
+                if (grounded)
+                    rb.drag = groundDrag;
+                else
+                    rb.drag = 0;
+                timer();
+                score.text = AddScore.ToString();
+            }
+
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                if (Input.GetKeyDown(jumpKey) && CanWallUp && ReadyToWallUp)
+                {
+                    //Invoke(nameof(wallup), 0.05f);
+                    CanWallUp = false;
+
                 }
 
             }
-            else
-            {
-                if (BP < MAX_BP && BP > 0)
-                {
-                    BP = BP + 0.01f;
-                }
-                if (BP <= 0)
-                {
-                    BP = BP + 0.0001f;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Mouse0)&&haveTool)
-            {
-                useTool();
-            }
-
-            if (grounded)
-                rb.drag = groundDrag;
-            else
-                rb.drag = 0;
-            timer();
-            score.text = AddScore.ToString();
-        }
-        
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            if (Input.GetKeyDown(jumpKey) && CanWallUp && ReadyToWallUp)
-            {
-                //Invoke(nameof(wallup), 0.05f);
-                CanWallUp = false;
-
-            }
-
         }
 
     }
@@ -291,11 +297,14 @@ public class PL_move : MonoBehaviour
         }
         else if (!grounded )
         {
-            
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplir, ForceMode.Force);
-            if(up>=-0.1f)
-            up = up-0.01f;
-            //rb.useGravity = true;
+            if (!Climbing)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplir, ForceMode.Force);
+                Physics.gravity = new Vector3(0, -20F, 0);
+                if (up >= -0.1f)
+                    up = up - 0.01f;
+                //rb.useGravity = true;
+            }
         }
         
         
@@ -466,5 +475,36 @@ public class PL_move : MonoBehaviour
         haveTool = false;
     }
     //¼o®×
-    
+    void OnCollisionStay(Collision Latter)
+    {
+        if(Latter.gameObject.tag == "Climb")
+        {
+
+            if(Input.GetKey(KeyCode.W))
+            {
+            Climbing = true;
+                Physics.gravity = new Vector3(0, 0, 0);
+                rb.AddForce(moveDirection.normalized * moveSpeed * 0 * airMultiplir, ForceMode.Force);
+            }
+            
+            if (Climbing == true && Input.GetKey(KeyCode.Space))
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(0, rb.velocity.y + 0.1f, 0);
+        }
+        else
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+        
+        
+
+    }
+    private void OnCollisionExit(Collision Latter)
+    {
+        Climbing = false;
+        
+    }
+
+
 }
