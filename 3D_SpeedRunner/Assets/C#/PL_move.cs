@@ -107,8 +107,6 @@ public class PL_move : MonoBehaviour
     public bool Climbing = false;
 
 
-
-
     private void Start()
     {
         OjumpForce = 9f;

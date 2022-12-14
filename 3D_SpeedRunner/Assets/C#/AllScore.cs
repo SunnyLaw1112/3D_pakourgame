@@ -14,7 +14,7 @@ public class AllScore : MonoBehaviour
     public float minute = 0;
     public float TimeScore = 0, MoveScore = 0, ItemScore = 0, ScoreScore = 0;
     static public bool End=false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +25,13 @@ public class AllScore : MonoBehaviour
     void Update()
     {
         finalScore = PL_move.TimeScore + PL_move.ToolScore + PL_move.MoveScore;
-        if(End)
-        ScoreCount();
+        if (End)
+        {
+            ScoreCount(); 
+        }
+        
     }
+
     public void ScoreCount()
     {
         ShowScore.SetActive(true);
