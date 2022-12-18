@@ -20,12 +20,14 @@ public class buttonControl : MonoBehaviour
     public void play() 
     {
         SceneManager.LoadScene(1);
+        
     }
 
     public void EnterLevel1() 
     {
         SceneManager.LoadScene(3);
         Debug.Log("Enter Level 1");
+        
     }
 
     public void SavingScenes() 

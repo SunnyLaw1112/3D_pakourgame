@@ -9,7 +9,7 @@ public class PL_move : MonoBehaviour
     public float moveSpeed;
     public float speed;
 
-    public GameObject player, A, B, C;
+    public GameObject player, A, B, C,ShowScore;
 
     
 
@@ -93,6 +93,7 @@ public class PL_move : MonoBehaviour
     static float TimeLine = 0;
     public Text Timer;
     public GameObject UI_score, UI_time, UI_tool;
+    public bool End;
 
     public int whatTool;
 
@@ -144,6 +145,7 @@ public class PL_move : MonoBehaviour
         UI_time.SetActive(true);
         UI_tool.SetActive(true);
         UI_O.SetActive(false);
+        
         haveTool = false;
         Atool = false;
         Btool = false;
@@ -152,9 +154,9 @@ public class PL_move : MonoBehaviour
 
     private void Update()
     {
-        if (!Climbing)
+        if (canMove)
         {
-            Physics.gravity = new Vector3(0, -20F, 0);
+            
 
             //print(jumpForce);
 
@@ -164,6 +166,7 @@ public class PL_move : MonoBehaviour
             wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallhit, wallCheckDistance);
             Walluping = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f) && !grounded;
             AddScore = ToolScore + MoveScore;
+            ShowScore.SetActive(false);
             if (this.transform.position.y <= 100)
             {
                 AddScore = 0;
@@ -171,10 +174,11 @@ public class PL_move : MonoBehaviour
                 ToolScore = 0;
                 transform.position = new Vector3(208.9f, 152f, -34.85f);
             }
+            timer();
 
-
-            if (canMove)
+            if (!Climbing)
             {
+                Physics.gravity = new Vector3(0, -20F, 0);
                 ZRotation += turnZ;
                 transform.rotation = Quaternion.Euler(0, 0, ZRotation);
 
@@ -211,7 +215,7 @@ public class PL_move : MonoBehaviour
                     rb.drag = groundDrag;
                 else
                     rb.drag = 0;
-                timer();
+                
                 score.text = AddScore.ToString();
             }
 
@@ -371,15 +375,16 @@ public class PL_move : MonoBehaviour
         UI_time.SetActive(false);
         UI_tool.SetActive(false);
         AllScore.End = true;
-        if (TimeLine <= 30)
+        keyControl.End = true;
+        if (TimeLine <= 60)
         {
             TimeScore = 1000;
         }
-        if (TimeLine >= 31&&TimeLine<=60)
+        if (TimeLine >= 61&&TimeLine<=120)
         {
             TimeScore = 500;
         }
-        if (TimeLine >= 61 && TimeLine <= 90)
+        if (TimeLine >= 121 && TimeLine <= 240)
         {
             TimeScore = 250;
         }
@@ -503,6 +508,15 @@ public class PL_move : MonoBehaviour
         Climbing = false;
         
     }
-
+    public void allreturn()
+    {
+        //AddScore = 0;
+        //MoveScore = 0;
+        //ToolScore = 0;
+        transform.position = new Vector3(208.9f, 152f, -34.85f);
+        AllScore.End = false;
+        keyControl.End = false;
+        canMove = true;
+    }
 
 }

@@ -8,6 +8,7 @@ public class keyControl : MonoBehaviour
     //public GameObject ShowScore;
 
     // Start is called before the first frame update
+    static public bool End = false;
     void Start()
     {
         
@@ -16,16 +17,20 @@ public class keyControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (End)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //ShowScore.SetActive(false);
-            print("Scene restarted");
-        }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //ShowScore.SetActive(false);
+                print("Scene restarted");
+                GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
+            }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SceneManager.LoadScene(1);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }

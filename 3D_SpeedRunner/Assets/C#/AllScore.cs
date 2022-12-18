@@ -26,10 +26,9 @@ public class AllScore : MonoBehaviour
     {
         finalScore = PL_move.TimeScore + PL_move.ToolScore + PL_move.MoveScore;
         if (End)
-        {
             ScoreCount(); 
-        }
-        
+        else if(!End)
+            ShowScore.SetActive(false);
     }
 
     public void ScoreCount()
