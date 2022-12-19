@@ -94,6 +94,6 @@ public class zhuaZi : MonoBehaviour
 
         lr.enabled = false;
         GameObject.Find("FPScontroller").GetComponent<PL_move>().EndGrapple();
-        PL_move.ToolScore = PL_move.ToolScore + 100;
+        PL_move.ToolScore = PL_move.ToolScore + 150;
     }
 }

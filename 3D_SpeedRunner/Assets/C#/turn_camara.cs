@@ -18,8 +18,8 @@ public class turn_camara : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.visible = false;
         readyWallJump = true;
     }
 
@@ -57,7 +57,7 @@ public class turn_camara : MonoBehaviour
             if (readyWallJump)
             {
                 PL_move.BP = PL_move.BP - 50;
-                PL_move.AddScore = PL_move.AddScore + 100;
+                PL_move.MoveScore = PL_move.MoveScore + 100;
                 PL_move.jumpForce = PL_move.OjumpForce*6/5;
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
                 readyWallJump = false;
@@ -69,7 +69,7 @@ public class turn_camara : MonoBehaviour
         else if (readyWallJump && (Input.GetKeyDown(KeyCode.Space) && (PL_move.wallLeft == true && !PL_move.grounded)))
         {
             PL_move.BP = PL_move.BP - 50;
-            PL_move.AddScore = PL_move.AddScore + 100;
+            PL_move.MoveScore = PL_move.MoveScore + 150;
             PL_move.jumpForce = PL_move.OjumpForce * 6 / 5;
             GameObject.Find("FPScontroller").GetComponent<PL_move>().Jump();
             readyWallJump = false;
@@ -95,6 +95,7 @@ public class turn_camara : MonoBehaviour
             addZ = 0.05f;
         PL_move.ReadyToWallUp = false;
         Invoke(nameof(endWallUp), 0.3f);
+        
 
     }
     public void endWallUp()

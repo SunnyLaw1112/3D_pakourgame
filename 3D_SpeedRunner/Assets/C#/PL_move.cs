@@ -376,15 +376,15 @@ public class PL_move : MonoBehaviour
         UI_tool.SetActive(false);
         AllScore.End = true;
         keyControl.End = true;
-        if (TimeLine <= 60)
+        if (TimeLine <= 75)
         {
             TimeScore = 1000;
         }
-        if (TimeLine >= 61&&TimeLine<=120)
+        if (TimeLine >= 76&&TimeLine<=150)
         {
             TimeScore = 500;
         }
-        if (TimeLine >= 121 && TimeLine <= 240)
+        if (TimeLine >= 151)
         {
             TimeScore = 250;
         }
@@ -399,7 +399,7 @@ public class PL_move : MonoBehaviour
     {
         if (Atool) 
         {
-            ToolScore = ToolScore + 100;
+            ToolScore = ToolScore + 150;
             Atool = false;
             moveSpeed = moveSpeed * 2;
             A.SetActive(false);
@@ -408,7 +408,7 @@ public class PL_move : MonoBehaviour
         }
         if (Btool && doublejump && !grounded)
         {
-            ToolScore = ToolScore + 100;
+            ToolScore = ToolScore + 150;
             Btool = false;
             B.SetActive(false);
             Jump();
@@ -514,6 +514,7 @@ public class PL_move : MonoBehaviour
         //MoveScore = 0;
         //ToolScore = 0;
         transform.position = new Vector3(208.9f, 152f, -34.85f);
+        TimeLine = 0;
         AllScore.End = false;
         keyControl.End = false;
         canMove = true;
