@@ -26,6 +26,8 @@ public class recover : MonoBehaviour
 
             Destroy(Rebox);
 
+            AudioManager.instance.Play("Drink");
+
 
         }
     }

@@ -33,5 +33,8 @@ public class MissonTrigger : MonoBehaviour
     {
         missionBackground.enabled = false;
         missonText.enabled = false;
+
     }
+
+
 }

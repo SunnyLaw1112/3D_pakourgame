@@ -110,6 +110,9 @@ public class PL_move : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.Stop("BGM2");
+        AudioManager.instance.Play("BGM1");
+
         OjumpForce = 9f;
         jumpForce = OjumpForce;
         rb = GetComponent<Rigidbody>();
@@ -152,7 +155,8 @@ public class PL_move : MonoBehaviour
         Ctool = false;
     }
 
-    private void Update()
+
+private void Update()
     {
         if (canMove)
         {
@@ -405,6 +409,7 @@ public class PL_move : MonoBehaviour
             A.SetActive(false);
             Invoke(nameof(ResetA), 1);
             haveTool = false;
+            AudioManager.instance.Play("SpeedUp");
         }
         if (Btool && doublejump && !grounded)
         {
@@ -415,10 +420,12 @@ public class PL_move : MonoBehaviour
             doublejump = false;
             haveTool = false;
             canDoubleJump=false;
+            AudioManager.instance.Play("2jump");
         }
         if (Ctool)
         {
             GameObject.Find("grapplingGun").GetComponent<zhuaZi>().StarGrapple();
+            AudioManager.instance.Play("Hook");
         }
         
      }

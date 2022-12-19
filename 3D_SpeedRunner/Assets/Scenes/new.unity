@@ -22580,7 +22580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &397693457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74312,6 +74312,7 @@ MonoBehaviour:
   UI_score: {fileID: 907881144}
   UI_time: {fileID: 931537905}
   UI_tool: {fileID: 1016259190}
+  End: 0
   whatTool: 0
   Height: 0
   Climbing: 0
@@ -117775,7 +117776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1689873160
 RectTransform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class M_box : MonoBehaviour
             M_Box.SetActive(false);
 
             Invoke(nameof(Reset), 5f);
+
+            AudioManager.instance.Play("ItemA");
         }
     }
     private void Reset()

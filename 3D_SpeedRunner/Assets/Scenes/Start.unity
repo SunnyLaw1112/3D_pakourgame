@@ -755,6 +755,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231289751}
   m_CullTransparentMesh: 1
+--- !u!1 &1768930382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768930384}
+  - component: {fileID: 1768930383}
+  m_Layer: 0
+  m_Name: BGMmanger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768930383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768930382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d0bde5a4d8dcf439426d0f414954dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BGM1
+    clip: {fileID: 8300000, guid: ea46cc87bfa8b0b4cac4351774511208, type: 3}
+    volume: 0.1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: BGM2
+    clip: {fileID: 8300000, guid: 40e3cb14c471a2c4788f47f6ece27d85, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: ItemA
+    clip: {fileID: 8300000, guid: 087749370be6b8e46a7b842c6072cc41, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Drink
+    clip: {fileID: 8300000, guid: 774fc4272b9faaa48a87743536038479, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hook
+    clip: {fileID: 8300000, guid: 203794cd212341540b1c37e2a26c3029, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 2jump
+    clip: {fileID: 8300000, guid: d59cc82f12caa864f8cc8fab3cf1e781, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: SpeedUp
+    clip: {fileID: 8300000, guid: bdce16eda56e2514a9f8773dee6ac91d, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 925c08f62af44d04c9046966b180d84b, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandomRangeMin: 0
+    pitchRandomRangeMax: 0
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1768930384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768930382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 211.23317, y: 150.75067, z: -13.412744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099487535
 GameObject:
   m_ObjectHideFlags: 0

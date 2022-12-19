@@ -19,12 +19,14 @@ public class buttonControl : MonoBehaviour
 
     public void play() 
     {
+        AudioManager.instance.Play("Button");
         SceneManager.LoadScene(1);
         
     }
 
     public void EnterLevel1() 
     {
+        AudioManager.instance.Play("Button");
         SceneManager.LoadScene(3);
         Debug.Log("Enter Level 1");
         
@@ -32,6 +34,7 @@ public class buttonControl : MonoBehaviour
 
     public void SavingScenes() 
     {
+        AudioManager.instance.Play("Button");
         Debug.Log("Enter saving scenes");
         SceneManager.LoadScene(2);
     }
