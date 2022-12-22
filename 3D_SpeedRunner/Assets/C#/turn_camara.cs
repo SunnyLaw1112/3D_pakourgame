@@ -19,7 +19,7 @@ public class turn_camara : MonoBehaviour
     void Start()
     {
        // Cursor.lockState = CursorLockMode.Locked;
-       // Cursor.visible = false;
+       Cursor.visible = false;
         readyWallJump = true;
     }
 

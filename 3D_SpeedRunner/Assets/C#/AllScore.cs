@@ -19,6 +19,7 @@ public class AllScore : MonoBehaviour
     void Start()
     {
         ShowScore.SetActive(false);
+        showABC.text = " ";
     }
 
     // Update is called once per frame
@@ -26,7 +27,8 @@ public class AllScore : MonoBehaviour
     {
         finalScore = PL_move.TimeScore + PL_move.ToolScore + PL_move.MoveScore;
         if (End)
-            ScoreCount(); 
+            ScoreCount();
+        
         else if(!End)
             ShowScore.SetActive(false);
     }
@@ -68,7 +70,7 @@ public class AllScore : MonoBehaviour
             {
                 showABC.text = "A";
             }
-            else if (finalScore > 2000 && finalScore <= 2500)
+            else if (finalScore > 2000)
             {
                 showABC.text = "S";
             }

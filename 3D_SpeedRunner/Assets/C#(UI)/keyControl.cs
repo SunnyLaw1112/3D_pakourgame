@@ -29,7 +29,9 @@ public class keyControl : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Cursor.visible = true;
                 SceneManager.LoadScene(1);
+                GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
             }
         }
     }

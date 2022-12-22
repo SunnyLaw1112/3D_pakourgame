@@ -149,6 +149,7 @@ public class PL_move : MonoBehaviour
         UI_tool.SetActive(true);
         UI_O.SetActive(false);
         
+
         haveTool = false;
         Atool = false;
         Btool = false;
@@ -160,10 +161,10 @@ private void Update()
     {
         if (canMove)
         {
-            
+
 
             //print(jumpForce);
-
+            Cursor.visible = false;
             CanWallUp = Physics.Raycast(transform.position, orientation.forward, out forwardWallhit, 2f) && !Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), orientation.forward, out forwardWallhit, 3f);
             grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.6f + 0.2f, whatIsGround);
             wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallhit, wallCheckDistance);
@@ -173,9 +174,15 @@ private void Update()
             ShowScore.SetActive(false);
             if (this.transform.position.y <= 100)
             {
-                AddScore = 0;
-                MoveScore = 0;
-                ToolScore = 0;
+                if (MoveScore >= 500)
+                {
+                    MoveScore = MoveScore - 500;
+                }
+                else
+                {
+                    MoveScore = 0;
+                }
+                
                 transform.position = new Vector3(208.9f, 152f, -34.85f);
             }
             timer();
@@ -384,11 +391,11 @@ private void Update()
         {
             TimeScore = 1000;
         }
-        if (TimeLine >= 76&&TimeLine<=150)
+        if (TimeLine > 75&&TimeLine<=150)
         {
             TimeScore = 500;
         }
-        if (TimeLine >= 151)
+        if (TimeLine > 150)
         {
             TimeScore = 250;
         }
@@ -490,7 +497,7 @@ private void Update()
         if(Latter.gameObject.tag == "Climb")
         {
 
-            if(Input.GetKey(KeyCode.W))
+            if(Input.GetKey(KeyCode.W)&!grounded)
             {
             Climbing = true;
                 Physics.gravity = new Vector3(0, 0, 0);
@@ -503,8 +510,19 @@ private void Update()
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(0, rb.velocity.y + 0.1f, 0);
         }
-        else
+        else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(0, rb.velocity.y - 0.1f, 0);
+            }
+            else
             rb.velocity = new Vector3(0, 0, 0);
+
+            if (grounded)
+            {
+                Climbing = false;
+            }
         }
         
         
