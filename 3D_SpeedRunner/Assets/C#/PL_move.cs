@@ -174,14 +174,7 @@ private void Update()
             ShowScore.SetActive(false);
             if (this.transform.position.y <= 100)
             {
-                if (MoveScore >= 500)
-                {
-                    MoveScore = MoveScore - 500;
-                }
-                else
-                {
-                    MoveScore = 0;
-                }
+                MoveScore = MoveScore - 500;
                 
                 transform.position = new Vector3(208.9f, 152f, -34.85f);
             }

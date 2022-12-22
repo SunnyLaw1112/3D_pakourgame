@@ -6081,7 +6081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionBackground: {fileID: 67769992}
   missonText: {fileID: 1593427684}
-  missionContent: "\u524D\u65B9\u7684\u9053\u5177\u662F\u9AD4\u529B\u56DE\u5FA9\u85E5\u5291\n\u4F60\u7684\u9AD4\u529B\u6703\u96A8\u8457\u6642\u9593\u6D41\u901D\u800C\u9010\u6F38\u6E1B\u5C11\n"
+  missionContent: "\u524D\u65B9\u7684\u9053\u5177\u662F\u9AD4\u529B\u56DE\u5FA9\u85E5\u5291\n\u4F60\u7684\u9AD4\u529B\u6703\u96A8\u8457\u6642\u9593\u6D41\u901D\u800C\u9010\u6F38\u6E1B\u5C11\n\u9AD4\u529B\u6E1B\u5C11\u6642\u4FBF\u4F7F\u7528\u9AD4\u529B\u56DE\u5FA9\u85E5\u5291\u5427"
 --- !u!65 &169944359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11476,7 +11476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionBackground: {fileID: 67769992}
   missonText: {fileID: 1593427684}
-  missionContent: "\u524D\u65B9\u7684\u9053\u5177\u662F\u96A8\u6A5F\u9053\u5177\u7BB1\n\u89F8\u78B0\u5230\u5F8C\u4FBF\u6703\u96A8\u6A5F\u7372\u5F97\u4E0D\u4E00\u6A23\u7684\u9053\u5177\uFF0C\u540C\u6642\u53EA\u8981\u8F15\u64CA\u5DE6\u9375\u4FBF\u80FD\u4F7F\u7528\u9053\u5177"
+  missionContent: "\u524D\u65B9\u7684\u9053\u5177\u662F\u96A8\u6A5F\u9053\u5177\u7BB1\n\u89F8\u78B0\u5230\u5F8C\u4FBF\u6703\u96A8\u6A5F\u7372\u5F97\u4E0D\u4E00\u6A23\u7684\u9053\u5177\uFF0C\u53EA\u8981\u8F15\u64CA\u5DE6\u9375\u4FBF\u80FD\u4F7F\u7528\u9053\u5177"
 --- !u!65 &238468565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27959,7 +27959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498216548}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 14.212, y: 8.693, z: 21.566}
+  m_LocalPosition: {x: 14.212, y: 8.693, z: 21.549}
   m_LocalScale: {x: -3, y: -1.8, z: -1.8}
   m_Children: []
   m_Father: {fileID: 717816109}
@@ -123041,7 +123041,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionBackground: {fileID: 67769992}
   missonText: {fileID: 1593427684}
-  missionContent: "\u6B61\u8FCE\u4F60\u4F86\u5230\u6975\u901F\u8DD1\u8005\u7684\u4E16\u754C\n\u4F60\u53EF\u4EE5\u4F7F\u7528wasd\u4F86\u79FB\u52D5\u4E26\u7528\u7A7A\u767D\u9375\u4F86\u9032\u884C\u8DF3\u8E8D\n\u4F86\u5617\u8A66\u5229\u7528\u9019\u4E9B\u4E0D\u65B7\u5411\u524D\u5427"
+  missionContent: "\u6B61\u8FCE\u4F60\u4F86\u5230\u6975\u901F\u8DD1\u8005\u7684\u4E16\u754C\n\u4F60\u53EF\u4EE5\u4F7F\u7528wasd\u4F86\u79FB\u52D5\u4E26\u7528\u7A7A\u767D\u9375\u4F86\u9032\u884C\u8DF3\u8E8D\n
+    [R\u9375\u53EF\u91CD\u65B0\u958B\u59CB\u95DC\u5361]\n\u5C0F\u5FC3\u5225\u6389\u4E0B\u6A13\u4E86
+    \u6703\u88AB\u5927\u6263\u5206\u6578!"
 --- !u!1 &1770722191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6995533438246739297, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
@@ -124760,6 +124762,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6604912872233421298, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604912872233421298, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.022
+      objectReference: {fileID: 0}
     - target: {fileID: 6643769677402186758, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -125075,6 +125085,14 @@ PrefabInstance:
     - target: {fileID: 9083880573127572948, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127841888415787904, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127841888415787904, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.642
       objectReference: {fileID: 0}
     - target: {fileID: 9141816029861474070, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
       propertyPath: m_Layer
@@ -130230,7 +130248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843547947}
   m_LocalRotation: {x: 0.49677342, y: -0.4964959, z: -0.50027394, w: 0.50639313}
-  m_LocalPosition: {x: 24.087, y: 10.077, z: 0.108}
+  m_LocalPosition: {x: 24.087, y: 10.077, z: 0.149}
   m_LocalScale: {x: -3, y: -2.2, z: -1.5}
   m_Children: []
   m_Father: {fileID: 717816109}
@@ -145688,7 +145706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionBackground: {fileID: 67769992}
   missonText: {fileID: 1593427684}
-  missionContent: "\u5728\u6709\u4E9B\u5730\u5716\u4E2D\u6703\u6709\u68AF\u5B50\u7684\u8A2D\u8A08\n\u7576\u4F60\u5728\u8DF3\u8E8D\u4E2D\u89F8\u78B0\u5230\u68AF\u5B50\uFF0C\u6301\u7E8C\u7684\u9577\u6309\u7A7A\u767D\u9375\u4FBF\u80FD\u5411\u4E0A\u722C\u884C"
+  missionContent: "\u5728\u6709\u4E9B\u5730\u5716\u4E2D\u6703\u6709\u68AF\u5B50\u7684\u8A2D\u8A08\n\u7576\u4F60\u5728\u8DF3\u8E8D\u4E2D\u89F8\u78B0\u5230\u68AF\u5B50\uFF0C\u9577\u6309\u7A7A\u767D\u9375\u4FBF\u80FD\u5411\u4E0A\u722C\u884C\uFF0C\u9577\u6309Shift\u53EF\u5F80\u4E0B\u722C"
 --- !u!65 &1957306443
 BoxCollider:
   m_ObjectHideFlags: 0

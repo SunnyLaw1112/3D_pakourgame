@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E0A\u4E00\u9801"
+  m_text: "\u4E0B\u4E00\u9801"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
   m_sharedMaterial: {fileID: -3824928869698569653, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E0A\u4E00\u9801"
+  m_text: "\u4E0B\u4E00\u9801"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
   m_sharedMaterial: {fileID: -3824928869698569653, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
@@ -2566,7 +2566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E0B\u4E00\u9801"
+  m_text: "\u4E0A\u4E00\u9801"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
   m_sharedMaterial: {fileID: -3824928869698569653, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
@@ -2969,7 +2969,7 @@ GameObject:
   - component: {fileID: 700020476}
   - component: {fileID: 700020475}
   m_Layer: 5
-  m_Name: back
+  m_Name: comfirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268405787}
+      - m_Target: {fileID: 1470904851}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4533,7 +4533,7 @@ GameObject:
   - component: {fileID: 1282151056}
   - component: {fileID: 1282151055}
   m_Layer: 5
-  m_Name: back
+  m_Name: comfirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4603,7 +4603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1914342413}
+      - m_Target: {fileID: 949845537}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4935,7 +4935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD\u79FB\u52D5 Space\u8DF3\u8E8D Shift\u6ED1\u884C"
+  m_text: "WASD\u79FB\u52D5 Space\u8DF3\u8E8D Shift\u6ED1\u884C\n[R\u9375\u53EF\u91CD\u65B0\u958B\u59CB\u95DC\u5361]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7aee398f774d1e649ae299ad83426997, type: 2}
   m_sharedMaterial: {fileID: 4398604612049140064, guid: 7aee398f774d1e649ae299ad83426997, type: 2}
@@ -5912,7 +5912,7 @@ GameObject:
   - component: {fileID: 1703689349}
   - component: {fileID: 1703689348}
   m_Layer: 5
-  m_Name: comfirm
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5982,7 +5982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1470904851}
+      - m_Target: {fileID: 1268405787}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -7869,7 +7869,7 @@ GameObject:
   - component: {fileID: 2077417383}
   - component: {fileID: 2077417382}
   m_Layer: 5
-  m_Name: comfirm
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7939,7 +7939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 949845537}
+      - m_Target: {fileID: 1914342413}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -8058,7 +8058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E0B\u4E00\u9801"
+  m_text: "\u4E0A\u4E00\u9801"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
   m_sharedMaterial: {fileID: -3824928869698569653, guid: 3d9af2794c617e94787516dfbf61b2e3, type: 2}
