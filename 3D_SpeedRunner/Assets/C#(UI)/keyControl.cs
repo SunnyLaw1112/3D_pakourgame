@@ -25,7 +25,7 @@ public class keyControl : MonoBehaviour
             GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             Cursor.visible = true;
             SceneManager.LoadScene(1);
@@ -44,7 +44,7 @@ public class keyControl : MonoBehaviour
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 Cursor.visible = true;
                 SceneManager.LoadScene(1);
