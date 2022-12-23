@@ -17,6 +17,12 @@ public class buttonControl : MonoBehaviour
         
     }
 
+    public void startScene() 
+    {
+        AudioManager.instance.Play("Button");
+        SceneManager.LoadScene(0);
+    }
+
     public void play() 
     {
         AudioManager.instance.Play("Button");
@@ -39,6 +45,10 @@ public class buttonControl : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-
+    public void QuitGame() 
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 
 }

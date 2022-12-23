@@ -30,6 +30,8 @@ public class keyControl : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene(1);
             GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
+            AudioManager.instance.Stop("BGM1");
+            AudioManager.instance.Play("BGM2");
         }
 
         if (End)
@@ -47,6 +49,8 @@ public class keyControl : MonoBehaviour
                 Cursor.visible = true;
                 SceneManager.LoadScene(1);
                 GameObject.Find("FPScontroller").GetComponent<PL_move>().allreturn();
+                AudioManager.instance.Stop("BGM1");
+                AudioManager.instance.Play("BGM2");
             }
         }
     }
