@@ -51,4 +51,8 @@ public class buttonControl : MonoBehaviour
         Application.Quit();
     }
 
+    public void SE() 
+    {
+        AudioManager.instance.Play("Button");
+    }
 }

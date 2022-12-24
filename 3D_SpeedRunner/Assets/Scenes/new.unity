@@ -446,7 +446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7313113509074640874, guid: 19c4e665bc606294d9a1f77fb5f84437, type: 3}
+  m_Sprite: {fileID: 846149039594181973, guid: c13f75fcddb8d5c46a22dea9882dd317, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -123042,8 +123042,8 @@ MonoBehaviour:
   missionBackground: {fileID: 67769992}
   missonText: {fileID: 1593427684}
   missionContent: "\u6B61\u8FCE\u4F60\u4F86\u5230\u6975\u901F\u8DD1\u8005\u7684\u4E16\u754C\n\u4F60\u53EF\u4EE5\u4F7F\u7528wasd\u4F86\u79FB\u52D5\u4E26\u7528\u7A7A\u767D\u9375\u4F86\u9032\u884C\u8DF3\u8E8D\n[R\u9375\u53EF\u91CD\u65B0\u958B\u59CB\u95DC\u5361
-    F\u9375\u53EF\u56DE\u5230\u95DC\u5361\u9078\u64C7\u4ECB\u9762]\n\u5C0F\u5FC3\u5225\u6389\u4E0B\u6A13\u4E86
-    \u6703\u88AB\u5927\u6263\u5206\u6578!"
+    B\u9375\u53EF\u56DE\u5230\u95DC\u5361\u9078\u64C7\u4ECB\u9762]\n\u5C0F\u5FC3\u5225\u6389\u4E0B\u6A13\u4E86
+    \u6703\u88AB\u5927\u6263\u5206\u6578 !"
 --- !u!1 &1770722191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6995533438246739297, guid: 8d26dff2f33142f4ea5bfd009b59c1eb, type: 3}
